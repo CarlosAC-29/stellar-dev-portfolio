@@ -17,6 +17,8 @@ export const Nav = () => {
   const [open, setOpen] = useState(false);
   const { lang, toggle } = useLang();
   const { theme, toggle: toggleTheme } = useTheme();
+  const cvHref = lang === "es" ? "/cv/Carlos_Caceres_HV_ES.pdf" : "/cv/Carlos_Caceres_CV_EN.pdf";
+  const cvLabel = lang === "es" ? "HV" : "CV";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
