@@ -18,25 +18,39 @@ export const Skills = () => {
         {groups.map(([category, items], i) => (
           <motion.div
             key={category}
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.55, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
             className="surface p-6"
           >
             <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">
               {category}
             </p>
-            <div className="flex flex-wrap gap-2">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-40px" }}
+              variants={{
+                hidden: {},
+                visible: { transition: { staggerChildren: 0.04, delayChildren: i * 0.08 + 0.15 } },
+              }}
+              className="flex flex-wrap gap-2"
+            >
               {items.map((item) => (
-                <span
+                <motion.span
                   key={item}
-                  className="text-sm text-foreground/90 bg-background/60 border border-border/60 rounded-full px-3 py-1 hover:border-primary/40 transition-colors duration-200"
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.8, y: 6 },
+                    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] } },
+                  }}
+                  whileHover={{ scale: 1.06, y: -2 }}
+                  className="text-sm text-foreground/90 bg-background/60 border border-border/60 rounded-full px-3 py-1 hover:border-primary/40 transition-colors duration-200 cursor-default"
                 >
                   {item}
-                </span>
+                </motion.span>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         ))}
       </div>
