@@ -64,29 +64,16 @@ export const Nav = () => {
         </ul>
 
         <div className="hidden md:flex items-center gap-3 shrink-0">
-          {/* Resume download */}
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              className="inline-flex items-center gap-1 font-mono text-xs text-muted-foreground hover:text-foreground border border-border/70 hover:border-primary/40 rounded-full px-2.5 py-1 transition-colors duration-200"
-              aria-label="Download resume"
-            >
-              <Download className="h-3.5 w-3.5" />
-              {lang === "es" ? "HV" : "CV"}
-              <ChevronDown className="h-3 w-3 opacity-70" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="min-w-[200px]">
-              <DropdownMenuItem asChild>
-                <a href="/cv/Carlos_Caceres_CV_EN.pdf" download className="cursor-pointer">
-                  {t.hero.resumeEn[lang]}
-                </a>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <a href="/cv/Carlos_Caceres_HV_ES.pdf" download className="cursor-pointer">
-                  {t.hero.resumeEs[lang]}
-                </a>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          {/* Resume download (auto by language) */}
+          <a
+            href={cvHref}
+            download
+            aria-label="Download resume"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-muted-foreground hover:text-foreground border border-border/70 hover:border-primary/40 rounded-full px-2.5 py-1 transition-colors duration-200"
+          >
+            <Download className="h-3.5 w-3.5" />
+            {cvLabel}
+          </a>
 
           {/* Theme toggle */}
           <button
@@ -97,15 +84,32 @@ export const Nav = () => {
             {theme === "dark" ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
           </button>
 
-          {/* Language toggle */}
+          {/* Language toggle - segmented switch */}
           <button
             onClick={toggle}
-            aria-label="Toggle language"
-            className="font-mono text-xs text-muted-foreground hover:text-foreground border border-border/70 hover:border-primary/40 rounded-full px-2.5 py-1 transition-colors duration-200"
+            aria-label={`Switch to ${lang === "en" ? "Spanish" : "English"}`}
+            title={lang === "en" ? "Cambiar a Español" : "Switch to English"}
+            className="relative inline-flex items-center gap-1 font-mono text-[11px] font-semibold border border-border/70 hover:border-primary/60 rounded-full p-0.5 bg-card/40 backdrop-blur-sm transition-colors duration-200"
           >
-            <span className={lang === "en" ? "text-foreground" : ""}>EN</span>
-            <span className="mx-1 text-border">/</span>
-            <span className={lang === "es" ? "text-foreground" : ""}>ES</span>
+            <Languages className="h-3.5 w-3.5 ml-1.5 mr-0.5 text-primary" />
+            <span
+              className={`px-2 py-0.5 rounded-full transition-colors duration-200 ${
+                lang === "en"
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground"
+              }`}
+            >
+              EN
+            </span>
+            <span
+              className={`px-2 py-0.5 rounded-full transition-colors duration-200 ${
+                lang === "es"
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground"
+              }`}
+            >
+              ES
+            </span>
           </button>
 
           <a
