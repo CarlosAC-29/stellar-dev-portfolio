@@ -32,7 +32,7 @@ export const Education = () => {
         <div className="space-y-4">
           {portfolio.education.map((e, i) => (
             <motion.div
-              key={e.degree}
+              key={e.institution + i}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -43,7 +43,7 @@ export const Education = () => {
                 <GraduationCap className="h-4 w-4 text-primary" />
               </div>
               <div>
-                <h3 className="text-foreground font-medium">{e.degree}</h3>
+                <h3 className="text-foreground font-medium">{e.degree[lang]}</h3>
                 <p className="text-sm text-muted-foreground mt-0.5">{e.institution}</p>
               </div>
             </motion.div>
@@ -63,10 +63,13 @@ export const Education = () => {
               </p>
             </div>
             <ul className="space-y-2">
-              {portfolio.languages.map((l) => (
-                <li key={l.language} className="flex items-center justify-between text-sm">
+              {portfolio.languages.map((l, idx) => (
+                <li key={idx} className="flex items-center justify-between text-sm">
                   <span className="text-foreground/90">
-                    {l.language} <span className="text-muted-foreground">— {l.level}</span>
+                    {l.language[lang]}{" "}
+                    <span className="text-muted-foreground">
+                      — {typeof l.level === "string" ? l.level : l.level[lang]}
+                    </span>
                   </span>
                   {l.certification && (
                     <a
