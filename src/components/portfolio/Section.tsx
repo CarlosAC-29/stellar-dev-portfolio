@@ -27,9 +27,7 @@ export const Section = ({ id, eyebrow, title, description, children }: SectionPr
             {title}
           </h2>
           {description && (
-            <p className="mt-4 text-muted-foreground text-base leading-relaxed">
-              {description}
-            </p>
+            <p className="mt-4 text-muted-foreground text-base leading-relaxed">{description}</p>
           )}
         </motion.div>
         {children}

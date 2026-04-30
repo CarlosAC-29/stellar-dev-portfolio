@@ -2,8 +2,11 @@ import { Github, Linkedin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import { Section } from "./Section";
 import { portfolio } from "@/data/portfolio";
+import { useLang } from "@/i18n/LanguageProvider";
+import { t } from "@/i18n/translations";
 
 export const Contact = () => {
+  const { lang } = useLang();
   const items = [
     { icon: Mail, label: portfolio.email, href: `mailto:${portfolio.email}` },
     { icon: Linkedin, label: "LinkedIn", href: portfolio.linkedin },
@@ -13,9 +16,9 @@ export const Contact = () => {
   return (
     <Section
       id="contact"
-      eyebrow="Contact"
-      title="Let's build something together"
-      description="Open to full-stack roles and collaborations. I usually reply within a day."
+      eyebrow={t.contact.eyebrow[lang]}
+      title={t.contact.title[lang]}
+      description={t.contact.description[lang]}
     >
       <div className="grid md:grid-cols-3 gap-3">
         {items.map((item, i) => (
@@ -40,11 +43,9 @@ export const Contact = () => {
 
       <footer className="mt-20 pt-8 border-t border-border/40 flex flex-col md:flex-row items-center justify-between gap-3">
         <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} {portfolio.name}. All rights reserved.
+          © {new Date().getFullYear()} {portfolio.name}. {t.contact.rights[lang]}
         </p>
-        <p className="font-mono text-xs text-muted-foreground">
-          Designed & built with care.
-        </p>
+        <p className="font-mono text-xs text-muted-foreground">{t.contact.built[lang]}</p>
       </footer>
     </Section>
   );
