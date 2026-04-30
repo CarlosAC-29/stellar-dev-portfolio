@@ -6,6 +6,7 @@ import { Skills } from "@/components/portfolio/Skills";
 import { Projects } from "@/components/portfolio/Projects";
 import { Education } from "@/components/portfolio/Education";
 import { Contact } from "@/components/portfolio/Contact";
+import { BackToTop } from "@/components/portfolio/BackToTop";
 import { LanguageProvider } from "@/i18n/LanguageProvider";
 import { ThemeProvider } from "@/i18n/ThemeProvider";
 import { useEffect } from "react";
@@ -36,6 +37,7 @@ const Index = () => {
           <Projects />
           <Education />
           <Contact />
+          <BackToTop />
         </main>
       </LanguageProvider>
     </ThemeProvider>
