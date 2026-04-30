@@ -27,10 +27,10 @@ export const Experience = () => {
             <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 mb-5">
               <div>
                 <h3 className="text-lg font-medium text-foreground">
-                  {job.role}{" "}
+                  {job.role[lang]}{" "}
                   <span className="text-muted-foreground font-normal">· {job.company}</span>
                 </h3>
-                <p className="text-sm text-muted-foreground mt-0.5">{job.location}</p>
+                <p className="text-sm text-muted-foreground mt-0.5">{job.location[lang]}</p>
               </div>
               <span className="font-mono text-xs text-muted-foreground tracking-wide whitespace-nowrap">
                 {job.period}
@@ -38,7 +38,7 @@ export const Experience = () => {
             </div>
 
             <ul className="space-y-2 mb-5">
-              {job.responsibilities.map((r) => (
+              {job.responsibilities[lang].map((r) => (
                 <li key={r} className="text-sm text-muted-foreground leading-relaxed flex gap-3">
                   <span className="mt-2 h-1 w-1 rounded-full bg-primary/70 shrink-0" />
                   {r}
@@ -50,7 +50,7 @@ export const Experience = () => {
               <Sparkles className="h-4 w-4 text-primary mt-0.5 shrink-0" />
               <p className="text-sm text-foreground/90 leading-relaxed">
                 <span className="text-primary font-medium">{t.experience.impact[lang]}: </span>
-                {job.achievement}
+                {job.achievement[lang]}
               </p>
             </div>
           </motion.article>
