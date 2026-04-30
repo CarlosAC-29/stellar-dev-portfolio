@@ -1,14 +1,8 @@
 import { useEffect, useState } from "react";
-import { Code2, Moon, Sun, Download, ChevronDown, Menu } from "lucide-react";
+import { Code2, Moon, Sun, Download, Menu, Languages } from "lucide-react";
 import { useLang } from "@/i18n/LanguageProvider";
 import { useTheme } from "@/i18n/ThemeProvider";
 import { t } from "@/i18n/translations";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import {
   Sheet,
   SheetContent,
@@ -23,6 +17,8 @@ export const Nav = () => {
   const [open, setOpen] = useState(false);
   const { lang, toggle } = useLang();
   const { theme, toggle: toggleTheme } = useTheme();
+  const cvHref = lang === "es" ? "/cv/Carlos_Caceres_HV_ES.pdf" : "/cv/Carlos_Caceres_CV_EN.pdf";
+  const cvLabel = lang === "es" ? "HV" : "CV";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -68,29 +64,16 @@ export const Nav = () => {
         </ul>
 
         <div className="hidden md:flex items-center gap-3 shrink-0">
-          {/* Resume download */}
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              className="inline-flex items-center gap-1 font-mono text-xs text-muted-foreground hover:text-foreground border border-border/70 hover:border-primary/40 rounded-full px-2.5 py-1 transition-colors duration-200"
-              aria-label="Download resume"
-            >
-              <Download className="h-3.5 w-3.5" />
-              {lang === "es" ? "HV" : "CV"}
-              <ChevronDown className="h-3 w-3 opacity-70" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="min-w-[200px]">
-              <DropdownMenuItem asChild>
-                <a href="/cv/Carlos_Caceres_CV_EN.pdf" download className="cursor-pointer">
-                  {t.hero.resumeEn[lang]}
-                </a>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <a href="/cv/Carlos_Caceres_HV_ES.pdf" download className="cursor-pointer">
-                  {t.hero.resumeEs[lang]}
-                </a>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          {/* Resume download (auto by language) */}
+          <a
+            href={cvHref}
+            download
+            aria-label="Download resume"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-muted-foreground hover:text-foreground border border-border/70 hover:border-primary/40 rounded-full px-2.5 py-1 transition-colors duration-200"
+          >
+            <Download className="h-3.5 w-3.5" />
+            {cvLabel}
+          </a>
 
           {/* Theme toggle */}
           <button
@@ -101,15 +84,32 @@ export const Nav = () => {
             {theme === "dark" ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
           </button>
 
-          {/* Language toggle */}
+          {/* Language toggle - segmented switch */}
           <button
             onClick={toggle}
-            aria-label="Toggle language"
-            className="font-mono text-xs text-muted-foreground hover:text-foreground border border-border/70 hover:border-primary/40 rounded-full px-2.5 py-1 transition-colors duration-200"
+            aria-label={`Switch to ${lang === "en" ? "Spanish" : "English"}`}
+            title={lang === "en" ? "Cambiar a Español" : "Switch to English"}
+            className="relative inline-flex items-center gap-1 font-mono text-[11px] font-semibold border border-border/70 hover:border-primary/60 rounded-full p-0.5 bg-card/40 backdrop-blur-sm transition-colors duration-200"
           >
-            <span className={lang === "en" ? "text-foreground" : ""}>EN</span>
-            <span className="mx-1 text-border">/</span>
-            <span className={lang === "es" ? "text-foreground" : ""}>ES</span>
+            <Languages className="h-3.5 w-3.5 ml-1.5 mr-0.5 text-primary" />
+            <span
+              className={`px-2 py-0.5 rounded-full transition-colors duration-200 ${
+                lang === "en"
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground"
+              }`}
+            >
+              EN
+            </span>
+            <span
+              className={`px-2 py-0.5 rounded-full transition-colors duration-200 ${
+                lang === "es"
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground"
+              }`}
+            >
+              ES
+            </span>
           </button>
 
           <a
@@ -170,19 +170,11 @@ export const Nav = () => {
                 </p>
                 <div className="flex flex-col gap-2">
                   <a
-                    href="/cv/Carlos_Caceres_CV_EN.pdf"
+                    href={cvHref}
                     download
                     className="inline-flex items-center justify-between gap-2 px-3 py-2 rounded-lg border border-border/70 hover:border-primary/40 text-sm text-foreground/90 transition-colors duration-200"
                   >
-                    {t.hero.resumeEn[lang]}
-                    <Download className="h-3.5 w-3.5 text-muted-foreground" />
-                  </a>
-                  <a
-                    href="/cv/Carlos_Caceres_HV_ES.pdf"
-                    download
-                    className="inline-flex items-center justify-between gap-2 px-3 py-2 rounded-lg border border-border/70 hover:border-primary/40 text-sm text-foreground/90 transition-colors duration-200"
-                  >
-                    {t.hero.resumeEs[lang]}
+                    {lang === "es" ? t.hero.resumeEs[lang] : t.hero.resumeEn[lang]}
                     <Download className="h-3.5 w-3.5 text-muted-foreground" />
                   </a>
                 </div>
@@ -190,12 +182,24 @@ export const Nav = () => {
                 <div className="flex items-center justify-between pt-3">
                   <button
                     onClick={toggle}
-                    aria-label="Toggle language"
-                    className="font-mono text-xs text-muted-foreground hover:text-foreground border border-border/70 hover:border-primary/40 rounded-full px-3 py-1.5 transition-colors duration-200"
+                    aria-label={`Switch to ${lang === "en" ? "Spanish" : "English"}`}
+                    className="relative inline-flex items-center gap-1 font-mono text-xs font-semibold border border-border/70 hover:border-primary/60 rounded-full p-0.5 bg-card/40 transition-colors duration-200"
                   >
-                    <span className={lang === "en" ? "text-foreground" : ""}>EN</span>
-                    <span className="mx-1 text-border">/</span>
-                    <span className={lang === "es" ? "text-foreground" : ""}>ES</span>
+                    <Languages className="h-3.5 w-3.5 ml-1.5 mr-0.5 text-primary" />
+                    <span
+                      className={`px-2 py-0.5 rounded-full transition-colors duration-200 ${
+                        lang === "en" ? "bg-primary text-primary-foreground" : "text-muted-foreground"
+                      }`}
+                    >
+                      EN
+                    </span>
+                    <span
+                      className={`px-2 py-0.5 rounded-full transition-colors duration-200 ${
+                        lang === "es" ? "bg-primary text-primary-foreground" : "text-muted-foreground"
+                      }`}
+                    >
+                      ES
+                    </span>
                   </button>
 
                   <SheetClose asChild>
