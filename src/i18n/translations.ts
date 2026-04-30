@@ -73,7 +73,7 @@ export const t = {
   education: {
     eyebrow: { en: "Education", es: "Educación" },
     title: { en: "Studies & background", es: "Estudios y formación" },
-    description: { en: "Formal training in software engineering, complemented by continuous learning.", es: "Formación formal en ingeniería de software, complementada con aprendizaje continuo." },
+    description: { en: "", es: "" },
     languages: { en: "Languages", es: "Idiomas" },
     certificate: { en: "View certificate", es: "Ver certificado" },
   },

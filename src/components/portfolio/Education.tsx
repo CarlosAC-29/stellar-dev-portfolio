@@ -13,7 +13,7 @@ export const Education = () => {
       id="education"
       eyebrow={t.education.eyebrow[lang]}
       title={t.education.title[lang]}
-      description={t.education.description[lang]}
+      
     >
       <div className="grid md:grid-cols-[280px_1fr] gap-8 items-start">
         <motion.div
