@@ -2,6 +2,7 @@ import { ExternalLink, Github } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLang } from "@/i18n/LanguageProvider";
 import { t } from "@/i18n/translations";
+import { TechIcon } from "./TechIcon";
 
 export interface ProjectProps {
   title: string;
@@ -56,8 +57,9 @@ export const Project = ({
           {technologies.map((tech) => (
             <span
               key={tech}
-              className="px-2 py-0.5 text-[11px] font-mono rounded-full border border-border/70 bg-background/40 text-muted-foreground"
+              className="inline-flex items-center gap-1.5 px-2 py-0.5 text-[11px] font-mono rounded-full border border-border/70 bg-background/40 text-muted-foreground"
             >
+              <TechIcon name={tech} className="h-3 w-3" />
               {tech}
             </span>
           ))}
