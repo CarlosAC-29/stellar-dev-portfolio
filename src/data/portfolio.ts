@@ -15,7 +15,7 @@ export const portfolio = {
     Languages: ["JavaScript", "TypeScript", "C#", "Java", "PHP", "Python"],
     Frameworks: ["Next.js", ".NET", "Angular", "NestJS", "Spring Boot", "Express"],
     Databases: ["PostgreSQL", "MySQL", "MongoDB", "Firestore"],
-    Tools: ["Git", "Docker", "Figma", "Jira"],
+    Tools: ["Git", "Docker", "Figma", "Jira", "Claude", "Gemini", "Copilot"],
     Cloud: ["AWS", "Azure"],
   } as Record<string, string[]>,
   experience: [
