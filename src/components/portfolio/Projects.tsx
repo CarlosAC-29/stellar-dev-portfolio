@@ -35,8 +35,8 @@ const projects = [
     title: "Portafolio",
     image: portafolioImg,
     technologies: ["NextJS"],
-    liveUrl: "https://carloscacerescampo.vercel.app/",
-    githubUrl: "https://github.com/CarlosAC-29/portafolio",
+    liveUrl: "https://carlos-caceres-tech.vercel.app/",
+    githubUrl: "https://github.com/CarlosAC-29/stellar-dev-portfolio",
   },
   {
     title: "RecipeMeUp",
