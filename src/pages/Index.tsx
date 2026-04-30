@@ -7,6 +7,7 @@ import { Projects } from "@/components/portfolio/Projects";
 import { Education } from "@/components/portfolio/Education";
 import { Contact } from "@/components/portfolio/Contact";
 import { LanguageProvider } from "@/i18n/LanguageProvider";
+import { ThemeProvider } from "@/i18n/ThemeProvider";
 import { useEffect } from "react";
 
 const Index = () => {
@@ -24,18 +25,20 @@ const Index = () => {
   }, []);
 
   return (
-    <LanguageProvider>
-      <main className="min-h-screen bg-background text-foreground">
-        <Nav />
-        <Hero />
-        <About />
-        <Experience />
-        <Skills />
-        <Projects />
-        <Education />
-        <Contact />
-      </main>
-    </LanguageProvider>
+    <ThemeProvider>
+      <LanguageProvider>
+        <main className="min-h-screen bg-background text-foreground">
+          <Nav />
+          <Hero />
+          <About />
+          <Experience />
+          <Skills />
+          <Projects />
+          <Education />
+          <Contact />
+        </main>
+      </LanguageProvider>
+    </ThemeProvider>
   );
 };
 

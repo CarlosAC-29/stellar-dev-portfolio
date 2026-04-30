@@ -1,11 +1,19 @@
 import { useEffect, useState } from "react";
-import { Code2 } from "lucide-react";
+import { Code2, Moon, Sun, Download, ChevronDown } from "lucide-react";
 import { useLang } from "@/i18n/LanguageProvider";
+import { useTheme } from "@/i18n/ThemeProvider";
 import { t } from "@/i18n/translations";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
   const { lang, toggle } = useLang();
+  const { theme, toggle: toggleTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -51,6 +59,40 @@ export const Nav = () => {
         </ul>
 
         <div className="flex items-center gap-2">
+          {/* Resume download */}
+          <DropdownMenu>
+            <DropdownMenuTrigger
+              className="hidden sm:inline-flex items-center gap-1 font-mono text-xs text-muted-foreground hover:text-foreground border border-border/70 hover:border-primary/40 rounded-full px-2.5 py-1 transition-colors duration-200"
+              aria-label="Download resume"
+            >
+              <Download className="h-3.5 w-3.5" />
+              CV
+              <ChevronDown className="h-3 w-3 opacity-70" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="min-w-[200px]">
+              <DropdownMenuItem asChild>
+                <a href="/cv/Carlos_Caceres_CV_EN.pdf" download className="cursor-pointer">
+                  {t.hero.resumeEn[lang]}
+                </a>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <a href="/cv/Carlos_Caceres_HV_ES.pdf" download className="cursor-pointer">
+                  {t.hero.resumeEs[lang]}
+                </a>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          {/* Theme toggle */}
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="h-7 w-7 inline-flex items-center justify-center text-muted-foreground hover:text-foreground border border-border/70 hover:border-primary/40 rounded-full transition-colors duration-200"
+          >
+            {theme === "dark" ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
+          </button>
+
+          {/* Language toggle */}
           <button
             onClick={toggle}
             aria-label="Toggle language"
@@ -60,6 +102,7 @@ export const Nav = () => {
             <span className="mx-1 text-border">/</span>
             <span className={lang === "es" ? "text-foreground" : ""}>ES</span>
           </button>
+
           <a
             href="#contact"
             className="hidden sm:inline-flex text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-4 py-1.5 transition-colors duration-200"

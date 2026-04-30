@@ -9,41 +9,54 @@ export interface ProjectProps {
   technologies: string[];
   liveUrl: string;
   githubUrl: string;
+  reverse?: boolean;
+  index?: number;
 }
 
-export const Project = ({ title, image, technologies, liveUrl, githubUrl }: ProjectProps) => {
+export const Project = ({
+  title,
+  image,
+  technologies,
+  liveUrl,
+  githubUrl,
+  reverse = false,
+  index = 0,
+}: ProjectProps) => {
   const { lang } = useLang();
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
+    <motion.article
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className="group relative overflow-hidden rounded-xl border border-border/60 bg-card"
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.55, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
+      className={`group surface surface-hover overflow-hidden grid md:grid-cols-2 gap-0 items-stretch ${
+        reverse ? "md:[&>div:first-child]:order-2" : ""
+      }`}
     >
       {/* Image */}
-      <div className="aspect-[16/10] w-full overflow-hidden bg-muted">
+      <div className="relative aspect-[16/10] md:aspect-auto md:min-h-[280px] overflow-hidden bg-muted">
         <img
           src={image}
           alt={title}
           loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
         />
+        <div className="absolute inset-0 bg-gradient-to-tr from-background/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
-      {/* Overlay */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/95 via-background/70 to-background/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
       {/* Content */}
-      <div className="absolute inset-0 flex flex-col justify-end p-5 opacity-0 translate-y-2 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0">
-        <h3 className="text-lg font-semibold text-foreground mb-2">{title}</h3>
+      <div className="p-6 md:p-8 flex flex-col justify-center">
+        <p className="font-mono text-[11px] uppercase tracking-widest text-primary/80 mb-2">
+          {String(index + 1).padStart(2, "0")} / {t.projects.eyebrow[lang]}
+        </p>
+        <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-3">{title}</h3>
 
-        <div className="flex flex-wrap gap-1.5 mb-4">
+        <div className="flex flex-wrap gap-1.5 mb-6">
           {technologies.map((tech) => (
             <span
               key={tech}
-              className="px-2 py-0.5 text-[11px] font-mono rounded-full border border-border/70 bg-background/60 text-muted-foreground backdrop-blur-sm"
+              className="px-2 py-0.5 text-[11px] font-mono rounded-full border border-border/70 bg-background/40 text-muted-foreground"
             >
               {tech}
             </span>
@@ -55,7 +68,7 @@ export const Project = ({ title, image, technologies, liveUrl, githubUrl }: Proj
             href={liveUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md bg-primary/90 text-primary-foreground hover:bg-primary transition-colors"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium rounded-md bg-primary/90 text-primary-foreground hover:bg-primary transition-colors"
           >
             <ExternalLink className="h-3.5 w-3.5" />
             {t.projects.viewLive[lang]}
@@ -64,13 +77,13 @@ export const Project = ({ title, image, technologies, liveUrl, githubUrl }: Proj
             href={githubUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md border border-border/70 bg-background/60 text-foreground hover:border-primary/50 transition-colors backdrop-blur-sm"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium rounded-md border border-border/70 bg-background/40 text-foreground hover:border-primary/50 transition-colors"
           >
             <Github className="h-3.5 w-3.5" />
             {t.projects.viewCode[lang]}
           </a>
         </div>
       </div>
-    </motion.div>
+    </motion.article>
   );
 };
