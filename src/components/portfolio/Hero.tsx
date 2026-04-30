@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Eye, Github, Linkedin, MapPin } from "lucide-react";
-import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogHeader } from "@/components/ui/dialog";
+import { ArrowRight, Download, Github, Linkedin, MapPin } from "lucide-react";
 import { portfolio } from "@/data/portfolio";
 import { ParticlesBackground } from "./ParticlesBackground";
 import { Typewriter } from "./Typewriter";
@@ -77,31 +76,6 @@ export const Hero = () => {
           >
             {t.hero.getInTouch[lang]}
           </a>
-          <Dialog>
-            <DialogTrigger className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 px-4 py-2.5 rounded-full border border-border/70 hover:border-primary/40">
-              <Eye className="h-4 w-4" /> {t.hero.previewResume[lang]}
-            </DialogTrigger>
-            <DialogContent className="max-w-5xl w-[95vw] h-[90vh] p-0 flex flex-col gap-0 overflow-hidden">
-              <DialogHeader className="px-5 py-3 border-b border-border/60 flex-row items-center justify-between space-y-0">
-                <DialogTitle className="text-sm font-mono text-muted-foreground">
-                  {lang === "es" ? t.hero.resumeEs[lang] : t.hero.resumeEn[lang]}
-                </DialogTitle>
-                <a
-                  href={cvHref}
-                  download
-                  className="inline-flex items-center gap-1.5 text-xs font-medium bg-primary text-primary-foreground rounded-full px-3 py-1.5 hover:bg-primary/90 transition-colors duration-200 mr-8"
-                >
-                  <Download className="h-3.5 w-3.5" />
-                  {t.hero.resume[lang]}
-                </a>
-              </DialogHeader>
-              <iframe
-                src={`${cvHref}#toolbar=0&navpanes=0`}
-                title={t.hero.previewResume[lang]}
-                className="flex-1 w-full bg-background"
-              />
-            </DialogContent>
-          </Dialog>
           <a
             href={cvHref}
             download
