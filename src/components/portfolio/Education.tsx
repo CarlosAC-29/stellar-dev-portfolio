@@ -1,4 +1,4 @@
-import carlosImg from "@/assets/carlos.png";
+import carlosImg from "@/assets/carlos-graduation.jpeg";
 import { motion } from "framer-motion";
 import { GraduationCap, Languages as LanguagesIcon, ExternalLink } from "lucide-react";
 import { Section } from "./Section";

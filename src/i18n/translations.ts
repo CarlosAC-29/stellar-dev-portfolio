@@ -21,6 +21,8 @@ export const t = {
     viewWork: { en: "View Work", es: "Ver trabajo" },
     getInTouch: { en: "Get in touch", es: "Contáctame" },
     resume: { en: "Resume", es: "CV" },
+    resumeEn: { en: "Resume (English)", es: "CV (Inglés)" },
+    resumeEs: { en: "Resume (Spanish)", es: "Hoja de Vida (Español)" },
     typed: {
       en: ["Full Stack Developer", "Systems Engineer", "Product-Minded Builder"],
       es: ["Desarrollador Full Stack", "Ingeniero de Sistemas", "Constructor con visión de producto"],
