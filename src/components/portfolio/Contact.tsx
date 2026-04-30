@@ -27,10 +27,11 @@ export const Contact = () => {
             href={item.href}
             target={item.href.startsWith("http") ? "_blank" : undefined}
             rel="noreferrer"
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 16, scale: 0.96 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={{ y: -3, scale: 1.02 }}
             className="surface surface-hover p-5 flex items-center gap-4"
           >
             <div className="h-10 w-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
