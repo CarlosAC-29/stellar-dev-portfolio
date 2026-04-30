@@ -32,6 +32,11 @@ export const ParticlesBackground = () => {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
+    // Track only meaningful width changes — mobile browsers fire resize
+    // when the URL bar shows/hides (height-only changes) which causes
+    // a visible flicker as the canvas is reset. Ignore those.
+    let lastWidth = 0;
+
     type P = { x: number; y: number; vx: number; vy: number; r: number };
     const count = Math.min(60, Math.floor((window.innerWidth * window.innerHeight) / 22000));
     const particles: P[] = [];
@@ -50,9 +55,16 @@ export const ParticlesBackground = () => {
     };
 
     resize();
+    lastWidth = width;
     init();
 
     const onResize = () => {
+      const parent = canvas.parentElement;
+      if (!parent) return;
+      const newWidth = parent.clientWidth;
+      // Only re-init when width actually changes (real layout change).
+      if (Math.abs(newWidth - lastWidth) < 2) return;
+      lastWidth = newWidth;
       resize();
       init();
     };
