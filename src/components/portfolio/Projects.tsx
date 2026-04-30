@@ -1,9 +1,51 @@
-import { ArrowUpRight } from "lucide-react";
-import { motion } from "framer-motion";
 import { Section } from "./Section";
-import { portfolio } from "@/data/portfolio";
+import { Project } from "./Project";
 import { useLang } from "@/i18n/LanguageProvider";
 import { t } from "@/i18n/translations";
+
+import flywiseImg from "@/assets/projects/flywise.jpeg";
+import mkalyImg from "@/assets/projects/mkaly.jpg";
+import vikingrImg from "@/assets/projects/vikingr-saga.png";
+import portafolioImg from "@/assets/projects/portafolio.png";
+import recipeImg from "@/assets/projects/recipemeup.png";
+
+const projects = [
+  {
+    title: "Flywise",
+    image: flywiseImg,
+    technologies: ["Express", "React"],
+    liveUrl: "https://flywise-opal.vercel.app",
+    githubUrl: "https://github.com/josegabjimenez/FlyWise",
+  },
+  {
+    title: "Mkaly",
+    image: mkalyImg,
+    technologies: ["NextJS", "Django", "Tailwind", "MaterialUI"],
+    liveUrl: "https://mkaly.vercel.app/",
+    githubUrl: "https://github.com/andrew921as/Mkaly",
+  },
+  {
+    title: "Vikingr Saga",
+    image: vikingrImg,
+    technologies: ["MERN Stack", "React Three Fiber"],
+    liveUrl: "https://vikingr-saga.vercel.app/",
+    githubUrl: "https://github.com/camyj2010/Vikingr-Saga",
+  },
+  {
+    title: "Portafolio",
+    image: portafolioImg,
+    technologies: ["NextJS"],
+    liveUrl: "https://carloscacerescampo.vercel.app/",
+    githubUrl: "https://github.com/CarlosAC-29/portafolio",
+  },
+  {
+    title: "RecipeMeUp",
+    image: recipeImg,
+    technologies: ["Angular"],
+    liveUrl: "https://recipe-me-up.vercel.app/",
+    githubUrl: "https://github.com/CarlosAC-29/RecipeMeUp",
+  },
+];
 
 export const Projects = () => {
   const { lang } = useLang();
@@ -14,29 +56,11 @@ export const Projects = () => {
       title={t.projects.title[lang]}
       description={t.projects.description[lang]}
     >
-      <motion.a
-        href={portfolio.portfolioUrl}
-        target="_blank"
-        rel="noreferrer"
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="surface surface-hover p-8 md:p-10 flex items-center justify-between gap-6 group"
-      >
-        <div>
-          <p className="font-mono text-xs uppercase tracking-widest text-primary mb-2">
-            {t.projects.live[lang]}
-          </p>
-          <h3 className="text-xl md:text-2xl font-medium text-foreground mb-1">
-            carloscacerescampo.vercel.app
-          </h3>
-          <p className="text-sm text-muted-foreground">{t.projects.desc[lang]}</p>
-        </div>
-        <div className="shrink-0 h-11 w-11 rounded-full border border-border/70 group-hover:border-primary/50 flex items-center justify-center transition-colors duration-200">
-          <ArrowUpRight className="h-4 w-4 text-foreground/80" />
-        </div>
-      </motion.a>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {projects.map((p) => (
+          <Project key={p.title} {...p} />
+        ))}
+      </div>
     </Section>
   );
 };

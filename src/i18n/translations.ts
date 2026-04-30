@@ -65,6 +65,8 @@ export const t = {
     description: { en: "A live portfolio is the best place to see things in action.", es: "Un portafolio en vivo es el mejor lugar para ver el trabajo en acción." },
     live: { en: "Live", es: "En vivo" },
     desc: { en: "Personal portfolio with case studies and side projects.", es: "Portafolio personal con casos de estudio y proyectos." },
+    viewLive: { en: "Live", es: "En vivo" },
+    viewCode: { en: "Code", es: "Código" },
   },
   education: {
     eyebrow: { en: "Education", es: "Educación" },
