@@ -20,7 +20,8 @@ export const t = {
     },
     viewWork: { en: "View Work", es: "Ver trabajo" },
     getInTouch: { en: "Get in touch", es: "Contáctame" },
-    resume: { en: "Resume", es: "CV" },
+    resume: { en: "Download Resume", es: "Descargar Hoja de Vida" },
+    previewResume: { en: "Preview Resume", es: "Ver Hoja de Vida" },
     resumeEn: { en: "Resume (English)", es: "CV (Inglés)" },
     resumeEs: { en: "Resume (Spanish)", es: "Hoja de Vida (Español)" },
     typed: {
