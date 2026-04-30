@@ -25,7 +25,14 @@ export const Education = () => {
         >
           <div className="absolute -inset-3 rounded-full bg-primary/10 blur-2xl" aria-hidden />
           <div className="relative h-56 w-56 md:h-64 md:w-64 rounded-full overflow-hidden border border-border/70 ring-1 ring-primary/20">
-            <img src={carlosImg} alt="Carlos Cáceres" className="h-full w-full object-cover" loading="lazy" />
+            <img
+              src={carlosImg}
+              alt="Carlos Cáceres"
+              width={512}
+              height={512}
+              decoding="async"
+              className="h-full w-full object-cover [image-rendering:auto]"
+            />
           </div>
         </motion.div>
 
