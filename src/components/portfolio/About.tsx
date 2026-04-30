@@ -1,47 +1,36 @@
 import { motion } from "framer-motion";
 import { Code2, Lightbulb, Users } from "lucide-react";
 import { Section } from "./Section";
-import { portfolio } from "@/data/portfolio";
+import { useLang } from "@/i18n/LanguageProvider";
+import { t } from "@/i18n/translations";
 
-const pillars = [
-  {
-    icon: Code2,
-    title: "Engineering",
-    text: "Full-stack delivery across JS/TS, .NET, Java and PHP — focused on performance and maintainability.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Product Thinking",
-    text: "Translate ambiguous business needs into clear scope, tickets and technical decisions.",
-  },
-  {
-    icon: Users,
-    title: "Collaboration",
-    text: "Comfortable working directly with clients and non-technical stakeholders to align outcomes.",
-  },
-];
+const icons = [Code2, Lightbulb, Users];
 
 export const About = () => {
+  const { lang } = useLang();
   return (
-    <Section id="about" eyebrow="About" title="Engineer with a product mindset">
+    <Section id="about" eyebrow={t.about.eyebrow[lang]} title={t.about.title[lang]}>
       <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mb-12">
-        {portfolio.about}
+        {t.about.body[lang]}
       </p>
       <div className="grid md:grid-cols-3 gap-4">
-        {pillars.map((p, i) => (
-          <motion.div
-            key={p.title}
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="surface surface-hover p-6"
-          >
-            <p.icon className="h-5 w-5 text-primary mb-4" />
-            <h3 className="text-foreground font-medium mb-2">{p.title}</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">{p.text}</p>
-          </motion.div>
-        ))}
+        {t.about.pillars.map((p, i) => {
+          const Icon = icons[i];
+          return (
+            <motion.div
+              key={p.title.en}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+              className="surface surface-hover p-6"
+            >
+              <Icon className="h-5 w-5 text-primary mb-4" />
+              <h3 className="text-foreground font-medium mb-2">{p.title[lang]}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{p.text[lang]}</p>
+            </motion.div>
+          );
+        })}
       </div>
     </Section>
   );

@@ -4,13 +4,16 @@ import { About } from "@/components/portfolio/About";
 import { Experience } from "@/components/portfolio/Experience";
 import { Skills } from "@/components/portfolio/Skills";
 import { Projects } from "@/components/portfolio/Projects";
+import { Education } from "@/components/portfolio/Education";
 import { Contact } from "@/components/portfolio/Contact";
+import { LanguageProvider } from "@/i18n/LanguageProvider";
 import { useEffect } from "react";
 
 const Index = () => {
   useEffect(() => {
     document.title = "Carlos Cáceres — Full Stack Developer";
-    const desc = "Full Stack Developer with 2+ years building scalable apps across JS/TS, .NET, Java, and PHP. Open to new opportunities.";
+    const desc =
+      "Full Stack Developer with 2+ years building scalable apps across JS/TS, .NET, Java, and PHP. Open to new opportunities.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement("meta");
@@ -21,15 +24,18 @@ const Index = () => {
   }, []);
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      <Nav />
-      <Hero />
-      <About />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Contact />
-    </main>
+    <LanguageProvider>
+      <main className="min-h-screen bg-background text-foreground">
+        <Nav />
+        <Hero />
+        <About />
+        <Experience />
+        <Skills />
+        <Projects />
+        <Education />
+        <Contact />
+      </main>
+    </LanguageProvider>
   );
 };
 

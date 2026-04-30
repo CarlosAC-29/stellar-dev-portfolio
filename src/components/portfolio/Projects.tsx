@@ -2,14 +2,17 @@ import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Section } from "./Section";
 import { portfolio } from "@/data/portfolio";
+import { useLang } from "@/i18n/LanguageProvider";
+import { t } from "@/i18n/translations";
 
 export const Projects = () => {
+  const { lang } = useLang();
   return (
     <Section
       id="projects"
-      eyebrow="Projects"
-      title="Selected work"
-      description="A live portfolio is the best place to see things in action."
+      eyebrow={t.projects.eyebrow[lang]}
+      title={t.projects.title[lang]}
+      description={t.projects.description[lang]}
     >
       <motion.a
         href={portfolio.portfolioUrl}
@@ -23,14 +26,12 @@ export const Projects = () => {
       >
         <div>
           <p className="font-mono text-xs uppercase tracking-widest text-primary mb-2">
-            Live
+            {t.projects.live[lang]}
           </p>
           <h3 className="text-xl md:text-2xl font-medium text-foreground mb-1">
             carloscacerescampo.vercel.app
           </h3>
-          <p className="text-sm text-muted-foreground">
-            Personal portfolio with case studies and side projects.
-          </p>
+          <p className="text-sm text-muted-foreground">{t.projects.desc[lang]}</p>
         </div>
         <div className="shrink-0 h-11 w-11 rounded-full border border-border/70 group-hover:border-primary/50 flex items-center justify-center transition-colors duration-200">
           <ArrowUpRight className="h-4 w-4 text-foreground/80" />

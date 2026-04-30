@@ -1,15 +1,18 @@
 import { motion } from "framer-motion";
 import { Section } from "./Section";
 import { portfolio } from "@/data/portfolio";
+import { useLang } from "@/i18n/LanguageProvider";
+import { t } from "@/i18n/translations";
 
 export const Skills = () => {
+  const { lang } = useLang();
   const groups = Object.entries(portfolio.skills);
   return (
     <Section
       id="skills"
-      eyebrow="Skills"
-      title="Tools I work with"
-      description="A practical toolkit shaped by years of shipping across stacks and clouds."
+      eyebrow={t.skills.eyebrow[lang]}
+      title={t.skills.title[lang]}
+      description={t.skills.description[lang]}
     >
       <div className="grid md:grid-cols-2 gap-4">
         {groups.map(([category, items], i) => (

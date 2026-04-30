@@ -2,14 +2,17 @@ import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import { Section } from "./Section";
 import { portfolio } from "@/data/portfolio";
+import { useLang } from "@/i18n/LanguageProvider";
+import { t } from "@/i18n/translations";
 
 export const Experience = () => {
+  const { lang } = useLang();
   return (
     <Section
       id="experience"
-      eyebrow="Experience"
-      title="Where I've made an impact"
-      description="A focus on measurable outcomes — performance, clarity, and shipping reliable software."
+      eyebrow={t.experience.eyebrow[lang]}
+      title={t.experience.title[lang]}
+      description={t.experience.description[lang]}
     >
       <div className="space-y-4">
         {portfolio.experience.map((job, i) => (
@@ -37,7 +40,7 @@ export const Experience = () => {
             <ul className="space-y-2 mb-5">
               {job.responsibilities.map((r) => (
                 <li key={r} className="text-sm text-muted-foreground leading-relaxed flex gap-3">
-                  <span className="text-primary/70 mt-2 h-1 w-1 rounded-full bg-primary/70 shrink-0" />
+                  <span className="mt-2 h-1 w-1 rounded-full bg-primary/70 shrink-0" />
                   {r}
                 </li>
               ))}
@@ -46,7 +49,7 @@ export const Experience = () => {
             <div className="flex items-start gap-3 rounded-lg border border-primary/20 bg-primary/[0.06] p-4">
               <Sparkles className="h-4 w-4 text-primary mt-0.5 shrink-0" />
               <p className="text-sm text-foreground/90 leading-relaxed">
-                <span className="text-primary font-medium">Impact: </span>
+                <span className="text-primary font-medium">{t.experience.impact[lang]}: </span>
                 {job.achievement}
               </p>
             </div>
