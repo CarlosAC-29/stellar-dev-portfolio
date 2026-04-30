@@ -56,9 +56,9 @@ export const Projects = () => {
       title={t.projects.title[lang]}
       description={t.projects.description[lang]}
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {projects.map((p) => (
-          <Project key={p.title} {...p} />
+      <div className="space-y-8">
+        {projects.map((p, i) => (
+          <Project key={p.title} {...p} reverse={i % 2 === 1} index={i} />
         ))}
       </div>
     </Section>

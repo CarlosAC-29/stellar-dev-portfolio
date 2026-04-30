@@ -6,17 +6,17 @@
 
 @layer base {
   :root {
-    /* Brand palette */
-    --background: 230 56% 10%;          /* #0B0F2A */
-    --foreground: 0 0% 100%;            /* #FFFFFF */
+    /* Dark theme (default) */
+    --background: 230 56% 10%;
+    --foreground: 0 0% 100%;
 
-    --card: 230 50% 14%;                /* #121735 */
+    --card: 230 50% 14%;
     --card-foreground: 0 0% 100%;
 
     --popover: 230 50% 14%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 226 100% 59%;            /* #2F5BFF */
+    --primary: 226 100% 59%;
     --primary-foreground: 0 0% 100%;
     --primary-glow: 226 100% 70%;
 
@@ -24,7 +24,7 @@
     --secondary-foreground: 0 0% 100%;
 
     --muted: 230 40% 18%;
-    --muted-foreground: 230 30% 74%;    /* #AAB0D0 */
+    --muted-foreground: 230 30% 74%;
 
     --accent: 230 45% 20%;
     --accent-foreground: 0 0% 100%;
@@ -38,13 +38,54 @@
 
     --radius: 0.75rem;
 
-    /* Gradients & shadows */
+    /* Hero name gradient — more saturated/readable */
+    --gradient-name: linear-gradient(135deg, hsl(226 100% 72%), hsl(265 95% 75%));
     --gradient-hero: radial-gradient(ellipse 80% 60% at 50% 0%, hsl(226 100% 59% / 0.18), transparent 70%);
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
     --shadow-soft: 0 1px 0 0 hsl(0 0% 100% / 0.04) inset, 0 10px 30px -20px hsl(226 100% 30% / 0.6);
     --shadow-glow: 0 0 0 1px hsl(var(--primary) / 0.25), 0 12px 40px -12px hsl(var(--primary) / 0.45);
 
     --transition-smooth: 200ms cubic-bezier(0.22, 1, 0.36, 1);
+
+    --grid-line: 230 40% 20%;
+  }
+
+  .light {
+    --background: 220 30% 98%;          /* near white */
+    --foreground: 230 40% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 230 40% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 40% 12%;
+
+    --primary: 226 90% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 226 95% 65%;
+
+    --secondary: 220 25% 94%;
+    --secondary-foreground: 230 40% 12%;
+
+    --muted: 220 25% 94%;
+    --muted-foreground: 230 15% 40%;
+
+    --accent: 220 25% 92%;
+    --accent-foreground: 230 40% 12%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 226 90% 55%;
+
+    --gradient-name: linear-gradient(135deg, hsl(226 95% 50%), hsl(265 80% 55%));
+    --gradient-hero: radial-gradient(ellipse 80% 60% at 50% 0%, hsl(226 100% 59% / 0.10), transparent 70%);
+    --shadow-soft: 0 1px 0 0 hsl(0 0% 100% / 0.6) inset, 0 10px 30px -20px hsl(226 60% 50% / 0.25);
+    --shadow-glow: 0 0 0 1px hsl(var(--primary) / 0.2), 0 12px 40px -12px hsl(var(--primary) / 0.35);
+
+    --grid-line: 230 30% 80%;
   }
 }
 
@@ -93,11 +134,18 @@
 
   .surface-hover:hover {
     @apply border-border;
-    background-color: hsl(230 45% 16%);
+    background-color: hsl(var(--accent));
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, hsl(0 0% 100%), hsl(230 30% 74%));
+    background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--muted-foreground)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-name {
+    background: var(--gradient-name);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -105,8 +153,8 @@
 
   .grid-bg {
     background-image:
-      linear-gradient(hsl(230 40% 20% / 0.4) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(230 40% 20% / 0.4) 1px, transparent 1px);
+      linear-gradient(hsl(var(--grid-line) / 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--grid-line) / 0.4) 1px, transparent 1px);
     background-size: 48px 48px;
     mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, black, transparent 70%);
   }

@@ -33,7 +33,7 @@ export const Hero = () => {
           className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]"
         >
           <span className="text-foreground">{t.hero.heading[lang]} </span>
-          <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+          <span className="text-gradient-name drop-shadow-[0_0_25px_hsl(var(--primary)/0.35)]">
             {t.hero.name[lang]}
           </span>
         </motion.h1>
