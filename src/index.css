@@ -98,10 +98,27 @@
     scroll-behavior: smooth;
   }
 
+  html, body {
+    overflow-x: hidden;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, sans-serif;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    /* Prevent flicker from compositing on mobile during scroll */
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Stabilize transforms on iOS/Android during scroll to avoid flicker */
+  @media (max-width: 768px) {
+    .surface,
+    section {
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      transform: translateZ(0);
+    }
   }
 
   ::selection {
