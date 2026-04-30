@@ -1,14 +1,8 @@
 import { useEffect, useState } from "react";
-import { Code2, Moon, Sun, Download, ChevronDown, Menu } from "lucide-react";
+import { Code2, Moon, Sun, Download, Menu, Languages } from "lucide-react";
 import { useLang } from "@/i18n/LanguageProvider";
 import { useTheme } from "@/i18n/ThemeProvider";
 import { t } from "@/i18n/translations";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import {
   Sheet,
   SheetContent,
