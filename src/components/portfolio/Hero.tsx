@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Globe, Github, Linkedin, MapPin, ChevronDown } from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin, MapPin, ChevronDown } from "lucide-react";
 import { portfolio } from "@/data/portfolio";
 import { ParticlesBackground } from "./ParticlesBackground";
 import { Typewriter } from "./Typewriter";
@@ -112,9 +112,6 @@ export const Hero = () => {
           </a>
           <a href={portfolio.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="hover:text-foreground transition-colors duration-200">
             <Linkedin className="h-5 w-5" />
-          </a>
-          <a href={portfolio.portfolioUrl} target="_blank" rel="noreferrer" aria-label="Portfolio" className="hover:text-foreground transition-colors duration-200">
-            <Globe className="h-5 w-5" />
           </a>
         </motion.div>
 

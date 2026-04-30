@@ -58,7 +58,7 @@ export const Projects = () => {
     >
       <div className="space-y-8">
         {projects.map((p, i) => (
-          <Project key={p.title} {...p} reverse={i % 2 === 1} index={i} />
+          <Project key={lang + p.title} {...p} reverse={i % 2 === 1} index={i} />
         ))}
       </div>
     </Section>

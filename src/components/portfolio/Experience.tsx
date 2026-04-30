@@ -17,7 +17,7 @@ export const Experience = () => {
       <div className="space-y-4">
         {portfolio.experience.map((job, i) => (
           <motion.article
-            key={job.company + job.period}
+            key={lang + job.company + job.period}
             initial={{ opacity: 0, x: i % 2 === 0 ? -24 : 24, y: 8 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
