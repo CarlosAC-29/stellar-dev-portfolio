@@ -11,6 +11,13 @@
     scrollbar-gutter: stable;
   }
 
+  /* Neutralize Radix's scroll-lock padding compensation, which shifts
+     the layout left when a dropdown/sheet opens. */
+  body[data-scroll-locked] {
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+  }
+
   :root {
     /* Dark theme (default) */
     --background: 230 56% 10%;
