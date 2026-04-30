@@ -75,7 +75,7 @@ export const Nav = () => {
               aria-label="Download resume"
             >
               <Download className="h-3.5 w-3.5" />
-              CV
+              {lang === "es" ? "HV" : "CV"}
               <ChevronDown className="h-3 w-3 opacity-70" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="min-w-[200px]">
