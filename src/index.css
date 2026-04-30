@@ -5,6 +5,12 @@
 @tailwind utilities;
 
 @layer base {
+  /* Always reserve scrollbar space to prevent layout shift when Radix
+     menus/dialogs lock body scroll on open. */
+  html {
+    scrollbar-gutter: stable;
+  }
+
   :root {
     /* Dark theme (default) */
     --background: 230 56% 10%;
