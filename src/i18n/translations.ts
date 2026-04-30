@@ -25,7 +25,7 @@ export const t = {
     resumeEs: { en: "Resume (Spanish)", es: "Hoja de Vida (Español)" },
     typed: {
       en: ["Full Stack Developer", "Systems Engineer", "Product-Minded Builder"],
-      es: ["Desarrollador Full Stack", "Ingeniero de Sistemas", "Constructor con visión de producto"],
+      es: ["Desarrollador Full Stack", "Ingeniero de Sistemas", "Mentalidad de producto"],
     },
   },
   about: {
