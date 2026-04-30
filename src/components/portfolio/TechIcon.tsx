@@ -1,10 +1,10 @@
-import * as icons from "simple-icons/icons";
+import * as siIcons from "simple-icons";
+import { Cloud } from "lucide-react";
 
-// Map display name → simple-icons slug (camelCase prefixed with "si")
+// Map display name → simple-icons export name
 const SLUGS: Record<string, string> = {
   JavaScript: "siJavascript",
   TypeScript: "siTypescript",
-  "C#": "siSharp", // C# isn't in simple-icons; fall back rendered separately
   Java: "siOpenjdk",
   PHP: "siPhp",
   Python: "siPython",
@@ -12,7 +12,7 @@ const SLUGS: Record<string, string> = {
   ".NET": "siDotnet",
   Angular: "siAngular",
   NestJS: "siNestjs",
-  "Spring Boot": "siSpring",
+  "Spring Boot": "siSpringboot",
   Express: "siExpress",
   PostgreSQL: "siPostgresql",
   MySQL: "siMysql",
@@ -25,8 +25,6 @@ const SLUGS: Record<string, string> = {
   Claude: "siClaude",
   Gemini: "siGooglegemini",
   Copilot: "siGithubcopilot",
-  AWS: "siAmazonwebservices",
-  Azure: "siMicrosoftazure",
 };
 
 interface TechIconProps {
@@ -35,8 +33,7 @@ interface TechIconProps {
 }
 
 export const TechIcon = ({ name, className = "h-4 w-4" }: TechIconProps) => {
-  const slug = SLUGS[name];
-  // Fallback for C# (no simple-icons slug)
+  // Special fallbacks (not in simple-icons due to brand restrictions / missing)
   if (name === "C#") {
     return (
       <span
@@ -47,8 +44,14 @@ export const TechIcon = ({ name, className = "h-4 w-4" }: TechIconProps) => {
       </span>
     );
   }
+  if (name === "AWS" || name === "Azure") {
+    return <Cloud className={className} aria-hidden />;
+  }
 
-  const icon = slug ? (icons as Record<string, { path: string; title: string }>)[slug] : undefined;
+  const slug = SLUGS[name];
+  const icon = slug
+    ? (siIcons as Record<string, { path: string; title: string } | undefined>)[slug]
+    : undefined;
   if (!icon) return null;
 
   return (
