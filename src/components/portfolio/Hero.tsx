@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Github, Linkedin, MapPin } from "lucide-react";
+import { ArrowRight, Download, Eye, Github, Linkedin, MapPin } from "lucide-react";
+import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogHeader } from "@/components/ui/dialog";
 import { portfolio } from "@/data/portfolio";
 import { ParticlesBackground } from "./ParticlesBackground";
 import { Typewriter } from "./Typewriter";
