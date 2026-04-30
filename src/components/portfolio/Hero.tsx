@@ -124,7 +124,7 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.7 }}
           className="mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-xs text-muted-foreground/80"
         >
-          {["TypeScript", ".NET", "Next.js", "NestJS", "PostgreSQL", "AWS", "Azure"].map((s) => (
+          {["TypeScript", "JavaScript", ".NET", "C#", "Java", "PHP", "Next.js", "React", "NestJS", "Node.js", "Express", "Django", "PostgreSQL", "MySQL", "MongoDB", "Redis", "AWS", "Azure", "Docker", "Tailwind"].map((s) => (
             <span key={s}>{s}</span>
           ))}
         </motion.div>
