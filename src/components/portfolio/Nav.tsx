@@ -170,19 +170,11 @@ export const Nav = () => {
                 </p>
                 <div className="flex flex-col gap-2">
                   <a
-                    href="/cv/Carlos_Caceres_CV_EN.pdf"
+                    href={cvHref}
                     download
                     className="inline-flex items-center justify-between gap-2 px-3 py-2 rounded-lg border border-border/70 hover:border-primary/40 text-sm text-foreground/90 transition-colors duration-200"
                   >
-                    {t.hero.resumeEn[lang]}
-                    <Download className="h-3.5 w-3.5 text-muted-foreground" />
-                  </a>
-                  <a
-                    href="/cv/Carlos_Caceres_HV_ES.pdf"
-                    download
-                    className="inline-flex items-center justify-between gap-2 px-3 py-2 rounded-lg border border-border/70 hover:border-primary/40 text-sm text-foreground/90 transition-colors duration-200"
-                  >
-                    {t.hero.resumeEs[lang]}
+                    {lang === "es" ? t.hero.resumeEs[lang] : t.hero.resumeEn[lang]}
                     <Download className="h-3.5 w-3.5 text-muted-foreground" />
                   </a>
                 </div>
@@ -190,12 +182,24 @@ export const Nav = () => {
                 <div className="flex items-center justify-between pt-3">
                   <button
                     onClick={toggle}
-                    aria-label="Toggle language"
-                    className="font-mono text-xs text-muted-foreground hover:text-foreground border border-border/70 hover:border-primary/40 rounded-full px-3 py-1.5 transition-colors duration-200"
+                    aria-label={`Switch to ${lang === "en" ? "Spanish" : "English"}`}
+                    className="relative inline-flex items-center gap-1 font-mono text-xs font-semibold border border-border/70 hover:border-primary/60 rounded-full p-0.5 bg-card/40 transition-colors duration-200"
                   >
-                    <span className={lang === "en" ? "text-foreground" : ""}>EN</span>
-                    <span className="mx-1 text-border">/</span>
-                    <span className={lang === "es" ? "text-foreground" : ""}>ES</span>
+                    <Languages className="h-3.5 w-3.5 ml-1.5 mr-0.5 text-primary" />
+                    <span
+                      className={`px-2 py-0.5 rounded-full transition-colors duration-200 ${
+                        lang === "en" ? "bg-primary text-primary-foreground" : "text-muted-foreground"
+                      }`}
+                    >
+                      EN
+                    </span>
+                    <span
+                      className={`px-2 py-0.5 rounded-full transition-colors duration-200 ${
+                        lang === "es" ? "bg-primary text-primary-foreground" : "text-muted-foreground"
+                      }`}
+                    >
+                      ES
+                    </span>
                   </button>
 
                   <SheetClose asChild>
