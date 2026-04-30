@@ -37,20 +37,20 @@ export const Nav = () => {
         scrolled ? "backdrop-blur-md bg-background/70 border-b border-border/60" : "bg-transparent"
       }`}
     >
-      <nav className="container-narrow flex items-center justify-between h-16">
-        <a href="#top" className="flex items-center gap-2 font-mono text-sm text-foreground">
+      <nav className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-16 gap-8">
+        <a href="#top" className="flex items-center gap-2 font-mono text-sm text-foreground shrink-0">
           <span className="h-8 w-8 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center">
             <Code2 className="h-4 w-4 text-primary" />
           </span>
           carlos.dev
         </a>
 
-        <ul className="hidden md:flex items-center gap-7">
+        <ul className="hidden md:flex items-center gap-8 lg:gap-10">
           {links.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 whitespace-nowrap"
               >
                 {l.label}
               </a>
@@ -58,7 +58,7 @@ export const Nav = () => {
           ))}
         </ul>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3 shrink-0">
           {/* Resume download */}
           <DropdownMenu>
             <DropdownMenuTrigger
