@@ -1,100 +1,116 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Github, Linkedin, MapPin } from "lucide-react";
+import { ArrowRight, Download, Globe, Github, Linkedin, MapPin } from "lucide-react";
 import { portfolio } from "@/data/portfolio";
+import { ParticlesBackground } from "./ParticlesBackground";
+import { Typewriter } from "./Typewriter";
+import { useLang } from "@/i18n/LanguageProvider";
+import { t } from "@/i18n/translations";
 
 export const Hero = () => {
-  return (
-    <section id="top" className="relative pt-40 pb-28 overflow-hidden">
-      <div className="absolute inset-0 grid-bg pointer-events-none" />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: "var(--gradient-hero)" }}
-      />
+  const { lang } = useLang();
 
-      <div className="container-narrow relative">
+  return (
+    <section id="top" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16">
+      <ParticlesBackground />
+      <div className="absolute inset-0 grid-bg pointer-events-none" />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "var(--gradient-hero)" }} />
+
+      <div className="container-narrow relative text-center">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="flex items-center gap-2 text-sm text-muted-foreground mb-6"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/70 bg-card/40 backdrop-blur-sm font-mono text-xs text-muted-foreground mb-10"
         >
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-60 animate-ping" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
-          </span>
-          Available for new opportunities
+          <MapPin className="h-3.5 w-3.5 text-primary" />
+          {t.hero.badge[lang]}
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-          className="text-4xl md:text-6xl font-semibold tracking-tight text-gradient leading-[1.05]"
+          className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]"
         >
-          {portfolio.name}
+          <span className="text-foreground">{t.hero.heading[lang]} </span>
+          <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+            {t.hero.name[lang]}
+          </span>
         </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-4 text-lg md:text-xl text-muted-foreground max-w-2xl"
-        >
-          {portfolio.title} — building scalable full-stack products and bridging the gap
-          between business needs and engineering.
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6 max-w-2xl text-base text-muted-foreground/90 leading-relaxed"
+          className="mt-6 font-mono text-lg md:text-2xl text-primary-glow min-h-[2em]"
         >
-          {portfolio.summary}
+          <Typewriter words={t.hero.typed[lang]} />
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-8 max-w-2xl mx-auto text-base md:text-lg text-muted-foreground leading-relaxed"
+        >
+          {t.hero.summary[lang]}
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-10 flex flex-wrap items-center gap-3"
+          transition={{ duration: 0.7, delay: 0.38, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-10 flex flex-wrap items-center justify-center gap-3"
         >
+          <a
+            href="#experience"
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-full px-6 py-2.5 text-sm font-medium hover:bg-primary/90 transition-colors duration-200"
+            style={{ boxShadow: "var(--shadow-glow)" }}
+          >
+            {t.hero.viewWork[lang]} <ArrowRight className="h-4 w-4" />
+          </a>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 border border-border/70 hover:border-border rounded-full px-6 py-2.5 text-sm font-medium text-foreground/90 hover:text-foreground transition-colors duration-200"
+          >
+            {t.hero.getInTouch[lang]}
+          </a>
           <a
             href={portfolio.portfolioUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-full px-5 py-2.5 text-sm font-medium hover:bg-primary/90 transition-colors duration-200"
-            style={{ boxShadow: "var(--shadow-glow)" }}
+            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 px-4 py-2.5"
           >
-            View portfolio
-            <ArrowUpRight className="h-4 w-4" />
-          </a>
-          <a
-            href={portfolio.github}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 border border-border/70 hover:border-border rounded-full px-5 py-2.5 text-sm font-medium text-foreground/90 hover:text-foreground transition-colors duration-200"
-          >
-            <Github className="h-4 w-4" /> GitHub
-          </a>
-          <a
-            href={portfolio.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 border border-border/70 hover:border-border rounded-full px-5 py-2.5 text-sm font-medium text-foreground/90 hover:text-foreground transition-colors duration-200"
-          >
-            <Linkedin className="h-4 w-4" /> LinkedIn
+            <Download className="h-4 w-4" /> {t.hero.resume[lang]}
           </a>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-10 flex items-center gap-2 text-sm text-muted-foreground"
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-10 flex items-center justify-center gap-5 text-muted-foreground"
         >
-          <MapPin className="h-4 w-4" />
-          {portfolio.location}
+          <a href={portfolio.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="hover:text-foreground transition-colors duration-200">
+            <Github className="h-5 w-5" />
+          </a>
+          <a href={portfolio.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="hover:text-foreground transition-colors duration-200">
+            <Linkedin className="h-5 w-5" />
+          </a>
+          <a href={portfolio.portfolioUrl} target="_blank" rel="noreferrer" aria-label="Portfolio" className="hover:text-foreground transition-colors duration-200">
+            <Globe className="h-5 w-5" />
+          </a>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-xs text-muted-foreground/80"
+        >
+          {["TypeScript", ".NET", "Next.js", "NestJS", "PostgreSQL", "AWS", "Azure"].map((s) => (
+            <span key={s}>{s}</span>
+          ))}
         </motion.div>
       </div>
     </section>
