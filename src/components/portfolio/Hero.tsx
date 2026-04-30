@@ -1,19 +1,14 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Github, Linkedin, MapPin, ChevronDown } from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin, MapPin } from "lucide-react";
 import { portfolio } from "@/data/portfolio";
 import { ParticlesBackground } from "./ParticlesBackground";
 import { Typewriter } from "./Typewriter";
 import { useLang } from "@/i18n/LanguageProvider";
 import { t } from "@/i18n/translations";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 export const Hero = () => {
   const { lang } = useLang();
+  const cvHref = lang === "es" ? "/cv/Carlos_Caceres_HV_ES.pdf" : "/cv/Carlos_Caceres_CV_EN.pdf";
 
   return (
     <section id="top" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16">
