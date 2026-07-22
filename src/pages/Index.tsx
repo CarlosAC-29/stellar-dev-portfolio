@@ -15,7 +15,7 @@ const Index = () => {
   useEffect(() => {
     document.title = "Carlos Cáceres — Full Stack Developer";
     const desc =
-      "Full Stack Developer with 2+ years building scalable apps across JS/TS, .NET, Java, and PHP. Open to new opportunities.";
+      "Full Stack Developer with 3+ years building scalable apps across JS/TS, .NET, Java, and PHP. Open to new opportunities.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement("meta");

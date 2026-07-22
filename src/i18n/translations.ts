@@ -1,4 +1,4 @@
-export type Lang = "en" | "es";
+﻿export type Lang = "en" | "es";
 
 export const t = {
   nav: {
@@ -15,8 +15,8 @@ export const t = {
     heading: { en: "HELLO WORLD, my name is", es: "HOLA MUNDO, mi nombre es" },
     name: { en: "Carlos", es: "Carlos" },
     summary: {
-      en: "Systems Engineer with 2+ years of experience building full-stack applications. I focus on performance, scalable solutions, and bridging technical and business needs.",
-      es: "Ingeniero de Sistemas con más de 2 años de experiencia construyendo aplicaciones full-stack. Me enfoco en el rendimiento, soluciones escalables y conectar lo técnico con el negocio.",
+      en: "Systems Engineer with 3+ years of experience building full-stack applications. I focus on performance, scalable solutions, and bridging technical and business needs.",
+      es: "Ingeniero de Sistemas con más de 3 años de experiencia construyendo aplicaciones full-stack. Me enfoco en el rendimiento, soluciones escalables y conectar lo técnico con el negocio.",
     },
     viewWork: { en: "View Work", es: "Ver trabajo" },
     getInTouch: { en: "Get in touch", es: "Contáctame" },
@@ -86,3 +86,4 @@ export const t = {
     built: { en: "Designed & built with care.", es: "Diseñado y construido con dedicación." },
   },
 };
+

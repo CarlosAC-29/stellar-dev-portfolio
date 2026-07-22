@@ -8,7 +8,7 @@ export const portfolio = {
   github: "https://github.com/CarlosAC-29",
   linkedin: "https://www.linkedin.com/in/carlos-c%C3%A1ceres-developer/",
   summary:
-    "Systems Engineer with 2+ years of experience building and maintaining full-stack applications. Strong focus on performance, scalable solutions, and bridging technical and business needs. Experienced in API integrations, cloud services, and translating requirements into technical solutions.",
+    "Systems Engineer with 3+ years of experience building and maintaining full-stack applications. Strong focus on performance, scalable solutions, and bridging technical and business needs. Experienced in API integrations, cloud services, and translating requirements into technical solutions.",
   about:
     "I build reliable, performant full-stack applications and care just as much about the product as the code. My day-to-day blends engineering with product thinking — gathering requirements, asking the right questions, and turning fuzzy business needs into clear, shippable solutions. I'm comfortable across the stack and across teams, from pair-debugging an API to aligning with non-technical stakeholders.",
   skills: {
