@@ -7,7 +7,7 @@ import { TechIcon } from "./TechIcon";
 
 export const Skills = () => {
   const { lang } = useLang();
-  const groups = Object.entries(portfolio.skills);
+  const groups = portfolio.skills;
   return (
     <Section
       id="skills"
@@ -16,9 +16,9 @@ export const Skills = () => {
       description={t.skills.description[lang]}
     >
       <div className="grid md:grid-cols-2 gap-4">
-        {groups.map(([category, items], i) => (
+        {groups.map((group, i) => (
           <motion.div
-            key={category}
+            key={group.category.en}
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
@@ -26,7 +26,7 @@ export const Skills = () => {
             className="surface p-6"
           >
             <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">
-              {category}
+              {group.category[lang]}
             </p>
             <motion.div
               initial="hidden"
@@ -38,7 +38,7 @@ export const Skills = () => {
               }}
               className="flex flex-wrap gap-2"
             >
-              {items.map((item) => (
+              {group.items[lang].map((item) => (
                 <motion.span
                   key={item}
                   variants={{

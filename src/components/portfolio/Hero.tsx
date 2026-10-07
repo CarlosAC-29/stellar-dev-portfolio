@@ -8,7 +8,7 @@ import { t } from "@/i18n/translations";
 
 export const Hero = () => {
   const { lang } = useLang();
-  const cvHref = lang === "es" ? "/cv/Carlos_Caceres_HV_ES.pdf" : "/cv/Carlos_Caceres_CV_EN.pdf";
+  const cvHref = lang === "es" ? "/Carlos_Caceres_CV_ES.pdf" : "/Carlos_Caceres_CV_EN.pdf";
 
   return (
     <section id="top" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16">

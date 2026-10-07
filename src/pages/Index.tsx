@@ -9,39 +9,44 @@ import { Contact } from "@/components/portfolio/Contact";
 import { BackToTop } from "@/components/portfolio/BackToTop";
 import { LanguageProvider } from "@/i18n/LanguageProvider";
 import { ThemeProvider } from "@/i18n/ThemeProvider";
+import { t } from "@/i18n/translations";
 import { useEffect } from "react";
+import { useLang } from "@/i18n/LanguageProvider";
 
-const Index = () => {
+const PortfolioPage = () => {
+  const { lang } = useLang();
+
   useEffect(() => {
-    document.title = "Carlos Cáceres — Full Stack Developer";
-    const desc =
-      "Full Stack Developer with 3+ years building scalable apps across JS/TS, .NET, Java, and PHP. Open to new opportunities.";
-    let meta = document.querySelector('meta[name="description"]');
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.setAttribute("name", "description");
-      document.head.appendChild(meta);
-    }
-    meta.setAttribute("content", desc);
-  }, []);
+    const title = t.metadata.title[lang];
+    const description = t.metadata.description[lang];
+
+    document.title = title;
+    document.querySelector('meta[name="description"]')?.setAttribute("content", description);
+    document.querySelector('meta[property="og:title"]')?.setAttribute("content", title);
+    document.querySelector('meta[property="og:description"]')?.setAttribute("content", description);
+  }, [lang]);
 
   return (
-    <ThemeProvider>
-      <LanguageProvider>
-        <main className="min-h-screen bg-background text-foreground">
-          <Nav />
-          <Hero />
-          <About />
-          <Experience />
-          <Skills />
-          <Projects />
-          <Education />
-          <Contact />
-          <BackToTop />
-        </main>
-      </LanguageProvider>
-    </ThemeProvider>
+    <main className="min-h-screen bg-background text-foreground">
+      <Nav />
+      <Hero />
+      <About />
+      <Experience />
+      <Skills />
+      <Projects />
+      <Education />
+      <Contact />
+      <BackToTop />
+    </main>
   );
 };
+
+const Index = () => (
+  <ThemeProvider>
+    <LanguageProvider>
+      <PortfolioPage />
+    </LanguageProvider>
+  </ThemeProvider>
+);
 
 export default Index;

@@ -17,7 +17,7 @@ export const Experience = () => {
       <div className="space-y-4">
         {portfolio.experience.map((job, i) => (
           <motion.article
-            key={lang + job.company + job.period}
+            key={lang + job.company + job.period.en}
             initial={{ opacity: 0, x: i % 2 === 0 ? -24 : 24, y: 8 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
@@ -33,9 +33,13 @@ export const Experience = () => {
                 <p className="text-sm text-muted-foreground mt-0.5">{job.location[lang]}</p>
               </div>
               <span className="font-mono text-xs text-muted-foreground tracking-wide whitespace-nowrap">
-                {job.period}
+                {job.period[lang]}
               </span>
             </div>
+
+            {job.context && (
+              <p className="text-sm text-muted-foreground leading-relaxed mb-5">{job.context[lang]}</p>
+            )}
 
             <motion.ul
               initial="hidden"
@@ -62,6 +66,8 @@ export const Experience = () => {
               ))}
             </motion.ul>
 
+            <p className="font-mono text-xs text-muted-foreground tracking-wide mb-5">{job.tech.join(" · ")}</p>
+
             <motion.div
               initial={{ opacity: 0, scale: 0.96 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -71,7 +77,7 @@ export const Experience = () => {
             >
               <Sparkles className="h-4 w-4 text-primary mt-0.5 shrink-0" />
               <p className="text-sm text-foreground/90 leading-relaxed">
-                <span className="text-primary font-medium">{t.experience.impact[lang]}: </span>
+                <span className="text-primary font-medium">{t.experience.achievement[lang]}: </span>
                 {job.achievement[lang]}
               </p>
             </motion.div>

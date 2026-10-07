@@ -15,8 +15,8 @@ export const t = {
     heading: { en: "HELLO WORLD, my name is", es: "HOLA MUNDO, mi nombre es" },
     name: { en: "Carlos", es: "Carlos" },
     summary: {
-      en: "Systems Engineer with 3+ years of experience building full-stack applications. I focus on performance, scalable solutions, and bridging technical and business needs.",
-      es: "Ingeniero de Sistemas con más de 3 años de experiencia construyendo aplicaciones full-stack. Me enfoco en el rendimiento, soluciones escalables y conectar lo técnico con el negocio.",
+      en: "Software Engineer with 5+ years of experience in full-stack development and requirements engineering.",
+      es: "Ingeniero de Sistemas con más de 5 años de experiencia en desarrollo full stack e ingeniería de requerimientos.",
     },
     viewWork: { en: "View Work", es: "Ver trabajo" },
     getInTouch: { en: "Get in touch", es: "Contáctame" },
@@ -25,16 +25,16 @@ export const t = {
     resumeEn: { en: "Resume (English)", es: "CV (Inglés)" },
     resumeEs: { en: "Resume (Spanish)", es: "Hoja de Vida (Español)" },
     typed: {
-      en: ["Full Stack Developer", "Systems Engineer", "Product-Minded Builder"],
-      es: ["Desarrollador Full Stack", "Ingeniero de Sistemas", "Mentalidad de producto"],
+      en: ["Software Engineer", "Requirements Engineer", "Systems Engineer"],
+      es: ["Ingeniero de Sistemas", "Ingeniero de Requerimientos", "Desarrollador Full Stack"],
     },
   },
   about: {
     eyebrow: { en: "About", es: "Sobre mí" },
-    title: { en: "Engineer with a product mindset", es: "Ingeniero con mentalidad de producto" },
+    title: { en: "Software Engineer with a product mindset", es: "Ingeniero de Sistemas con mentalidad de producto" },
     body: {
-      en: "I build reliable, performant full-stack applications and care just as much about the product as the code. My day-to-day blends engineering with product thinking — gathering requirements, asking the right questions, and turning fuzzy business needs into clear, shippable solutions.",
-      es: "Construyo aplicaciones full-stack confiables y de alto rendimiento, y me importa tanto el producto como el código. Mi día a día combina ingeniería con visión de producto — recopilar requisitos, hacer las preguntas correctas y convertir necesidades difusas en soluciones claras y entregables.",
+      en: "Systems Engineering graduate from Universidad del Valle with 5+ years of experience in software development, including nearly 3 years as a Full-Stack Developer building scalable web applications with JavaScript, TypeScript, C#, Java, and PHP. Currently working as a Requirements Engineer on a financial-sector project, handling requirements elicitation, functional documentation, and functional and API testing with Azure DevOps and Postman. This lets me connect business needs with technical implementation from the start. Experienced in REST API integrations, microservices, cloud solutions (Azure, AWS), database management, and performance optimization.",
+      es: "Ingeniero de Sistemas egresado de la Universidad del Valle con más de 5 años de experiencia en desarrollo de software, incluyendo casi 3 años como Desarrollador Full Stack construyendo aplicaciones web escalables con JavaScript, TypeScript, C#, Java y PHP. Actualmente me desempeño como Ingeniero de Requerimientos en un proyecto del sector financiero, a cargo del levantamiento de requerimientos, la documentación funcional y las pruebas funcionales y de API con Azure DevOps y Postman. Esto me permite conectar las necesidades del negocio con la implementación técnica desde el inicio. Tengo experiencia en integración de APIs REST, microservicios, soluciones en la nube (Azure, AWS), gestión de bases de datos y optimización de rendimiento.",
     },
     pillars: [
       {
@@ -55,7 +55,14 @@ export const t = {
     eyebrow: { en: "Experience", es: "Experiencia" },
     title: { en: "Where I've made an impact", es: "Donde he generado impacto" },
     description: { en: "A focus on measurable outcomes — performance, clarity, and shipping reliable software.", es: "Enfocado en resultados medibles — rendimiento, claridad y software confiable." },
-    impact: { en: "Impact", es: "Impacto" },
+    achievement: { en: "Achievement", es: "Logro" },
+  },
+  metadata: {
+    title: { en: "Carlos Cáceres — Software Engineer", es: "Carlos Cáceres — Ingeniero de Sistemas" },
+    description: {
+      en: "Software Engineer with 5+ years of experience in full-stack development (JS/TS, .NET, Java, PHP) and requirements engineering. Open to new opportunities.",
+      es: "Ingeniero de Sistemas con más de 5 años de experiencia en desarrollo full stack (JS/TS, .NET, Java, PHP) e ingeniería de requerimientos. Abierto a nuevas oportunidades.",
+    },
   },
   skills: {
     eyebrow: { en: "Skills", es: "Habilidades" },
@@ -86,4 +93,3 @@ export const t = {
     built: { en: "Designed & built with care.", es: "Diseñado y construido con dedicación." },
   },
 };
-
