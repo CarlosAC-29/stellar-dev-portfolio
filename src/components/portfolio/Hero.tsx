@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Github, Linkedin, MapPin } from "lucide-react";
+import { ArrowRight, FileText, Github, Linkedin, MapPin } from "lucide-react";
 import { portfolio } from "@/data/portfolio";
 import { ParticlesBackground } from "./ParticlesBackground";
 import { Typewriter } from "./Typewriter";
@@ -78,10 +78,11 @@ export const Hero = () => {
           </a>
           <a
             href={cvHref}
-            download
+            target="_blank"
+            rel="noreferrer"
             className="inline-flex items-center gap-2 text-sm font-medium bg-primary/10 text-primary hover:bg-primary/20 transition-colors duration-200 px-4 py-2.5 rounded-full border border-primary/30"
           >
-            <Download className="h-4 w-4" /> {t.hero.resume[lang]}
+            <FileText className="h-4 w-4" /> {t.hero.viewCv[lang]}
           </a>
         </motion.div>
 

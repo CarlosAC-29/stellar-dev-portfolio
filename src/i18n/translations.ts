@@ -20,10 +20,7 @@ export const t = {
     },
     viewWork: { en: "View Work", es: "Ver trabajo" },
     getInTouch: { en: "Get in touch", es: "Contáctame" },
-    resume: { en: "Download Resume", es: "Descargar Hoja de Vida" },
-    previewResume: { en: "Preview Resume", es: "Ver Hoja de Vida" },
-    resumeEn: { en: "Resume (English)", es: "CV (Inglés)" },
-    resumeEs: { en: "Resume (Spanish)", es: "Hoja de Vida (Español)" },
+    viewCv: { en: "View CV", es: "Ver hoja de vida" },
     typed: {
       en: ["Software Engineer", "Requirements Engineer", "Systems Engineer"],
       es: ["Ingeniero de Sistemas", "Ingeniero de Requerimientos", "Desarrollador Full Stack"],
@@ -56,6 +53,10 @@ export const t = {
     title: { en: "Where I've made an impact", es: "Donde he generado impacto" },
     description: { en: "A focus on measurable outcomes — performance, clarity, and shipping reliable software.", es: "Enfocado en resultados medibles — rendimiento, claridad y software confiable." },
     achievement: { en: "Achievement", es: "Logro" },
+    swipeHint: { en: "Swipe to explore", es: "Desliza para explorar" },
+    scrollHint: { en: "Drag or use the arrows to explore", es: "Arrastra o usa las flechas para explorar" },
+    goToExperience: { en: "Go to experience", es: "Ir a la experiencia" },
+    currentRole: { en: "Current role", es: "Trabajo actual" },
   },
   metadata: {
     title: { en: "Carlos Cáceres — Software Engineer", es: "Carlos Cáceres — Ingeniero de Sistemas" },
@@ -77,6 +78,9 @@ export const t = {
     desc: { en: "Personal portfolio with case studies and side projects.", es: "Portafolio personal con casos de estudio y proyectos." },
     viewLive: { en: "Live", es: "En vivo" },
     viewCode: { en: "Code", es: "Código" },
+    swipeHint: { en: "Swipe to explore", es: "Desliza para explorar" },
+    scrollHint: { en: "Drag or use the arrows to explore", es: "Arrastra o usa las flechas para explorar" },
+    goToProject: { en: "Go to project", es: "Ir al proyecto" },
   },
   education: {
     eyebrow: { en: "Education", es: "Educación" },

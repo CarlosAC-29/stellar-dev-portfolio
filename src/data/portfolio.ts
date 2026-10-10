@@ -7,6 +7,7 @@ interface Experience {
   company: string;
   location: Localized<string>;
   period: Localized<string>;
+  isCurrent?: boolean;
   context?: Localized<string>;
   responsibilities: Localized<string[]>;
   achievement: Localized<string>;
@@ -81,6 +82,7 @@ export const portfolio: {
       company: "VortexBird",
       location: { en: "Cali, Colombia", es: "Cali, Colombia" },
       period: { en: "Jul 2026 – Present", es: "Jul 2026 – Actualidad" },
+      isCurrent: true,
       context: {
         en: "Assigned to a leading Colombian financial institution.",
         es: "Asignado a una importante entidad financiera colombiana.",

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Code2, Moon, Sun, Download, Menu, Languages } from "lucide-react";
+import { Code2, Moon, Sun, Menu, Languages } from "lucide-react";
 import { useLang } from "@/i18n/LanguageProvider";
 import { useTheme } from "@/i18n/ThemeProvider";
 import { t } from "@/i18n/translations";
@@ -17,8 +17,6 @@ export const Nav = () => {
   const [open, setOpen] = useState(false);
   const { lang, toggle } = useLang();
   const { theme, toggle: toggleTheme } = useTheme();
-  const cvHref = lang === "es" ? "/Carlos_Caceres_CV_ES.pdf" : "/Carlos_Caceres_CV_EN.pdf";
-  const cvLabel = lang === "es" ? "HV" : "CV";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -64,17 +62,6 @@ export const Nav = () => {
         </ul>
 
         <div className="hidden md:flex items-center gap-3 shrink-0">
-          {/* Resume download (auto by language) */}
-          <a
-            href={cvHref}
-            download
-            aria-label="Download resume"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-muted-foreground hover:text-foreground border border-border/70 hover:border-primary/40 rounded-full px-2.5 py-1 transition-colors duration-200"
-          >
-            <Download className="h-3.5 w-3.5" />
-            {cvLabel}
-          </a>
-
           {/* Theme toggle */}
           <button
             onClick={toggleTheme}
@@ -164,22 +151,8 @@ export const Nav = () => {
                 ))}
               </ul>
 
-              <div className="mt-auto pt-6 border-t border-border/60 space-y-3">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground px-1">
-                  {t.hero.resume[lang]}
-                </p>
-                <div className="flex flex-col gap-2">
-                  <a
-                    href={cvHref}
-                    download
-                    className="inline-flex items-center justify-between gap-2 px-3 py-2 rounded-lg border border-border/70 hover:border-primary/40 text-sm text-foreground/90 transition-colors duration-200"
-                  >
-                    {lang === "es" ? t.hero.resumeEs[lang] : t.hero.resumeEn[lang]}
-                    <Download className="h-3.5 w-3.5 text-muted-foreground" />
-                  </a>
-                </div>
-
-                <div className="flex items-center justify-between pt-3">
+              <div className="mt-auto pt-6 border-t border-border/60">
+                <div className="flex items-center justify-between">
                   <button
                     onClick={toggle}
                     aria-label={`Switch to ${lang === "en" ? "Spanish" : "English"}`}
